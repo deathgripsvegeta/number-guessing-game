@@ -11,11 +11,7 @@ public class Number : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("welcome to our number guessing game :3");
-        Debug.Log("the number range is from "+ minValue + " and " + maxValue);
-        Debug.Log("guess a number between the given range");
-        Debug.Log("is your number higher or lower than " + guess + "?");
-        Debug.Log("push up arrow = higher, push down = lower, push enter = correct");
+       StartGame();
     }
 
     // Update is called once per frame
@@ -25,7 +21,7 @@ public class Number : MonoBehaviour
         {
             minValue = guess;
             guess = (maxValue + minValue) / 2;
-            Debug.Log("is it higher or lower than " + guess);
+            Debug.Log("is it higher or lower than " + guess + "?");
         }
         if(Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -33,5 +29,24 @@ public class Number : MonoBehaviour
             guess = (maxValue + minValue) / 2;
             Debug.Log("is it higher or lower then " + guess + "?");
         }
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            Debug.Log("yay ^_^!! i guessed correct!!!");
+            Debug.Log("");
+            StartGame();
+        }
+    }
+    void StartGame()
+    {
+        guess = 5;
+        minValue = 1;
+        maxValue = 10;
+
+        Debug.Log("welcome to our number guessing game :3");
+        Debug.Log("the number range is from "+ minValue + " and " + maxValue);
+        Debug.Log("guess a number between the given range");
+        Debug.Log("is your number higher or lower than " + guess + "?");
+        Debug.Log("push up arrow = higher, push down = lower, push enter = correct");
+        maxValue = maxValue + 1;
     }
 }
